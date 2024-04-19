@@ -521,11 +521,9 @@ export class DashboardComponent implements OnInit {
 
   
   clearFields() {
-    // Clear the date input and text input fields
     this.selectedDate = null;
     this.inputValue = '';
 
-    // Reset the date input value
     if (this.picker && this.picker.nativeElement) {
       this.picker.nativeElement.value = null;
     }
