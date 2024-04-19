@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="fileD">
+        <div class="row">
+            <div class="rowOne">
+                <div class="labelInput">
+                    <input id="folderInput" type="file" multiple hidden>
+                </div>
+                <div>
+                </div>
+            </div>
+            <div class="search"><input type="text" placeholder="Search"></div>
+            <div class="rowTwo" id="exportTableData">
+                <table class="dash-table1" id="myTable">
+                    <thead class="head">
+                        <tr class="tr1">
+                            <th class="th1">File </th>
+                            <th class="th1">Assigned Employee</th>
+                            <th class="th1">Assigned Date</th>
+                            <th class="th1">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let d of assignedData1;" 
+                        [ngClass]="
+                            {
+                            'yellow-row': d.status === 'Completed', 'green-row': d.status === 'File Approved'
+                            } " >
+                            <td>{{d.filename}}</td>
+                            <td>{{d.employee_assigned}}</td>
+                            <td>{{d.assigning_date.split('T')[0]}}</td>
+                            <td class="status">{{d.status}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

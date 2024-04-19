@@ -1,0 +1,120 @@
+<div class="status-container">
+    <div class="header">
+        <ul type="none">
+            <li *ngIf="empEmail">{{empEmail}}</li>
+            <li>{{dateString}}</li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="fileD">
+            <div class="row">
+                <div class="welcome"></div>
+                <div>
+                </div>
+                <div class="rowTwo" id="exportTableData">
+                    <table class="dash-table1" id="myTable">
+                        <thead class="head">
+                            <tr class="tr2">
+                                <th class="th2">FILE </th>
+                                <!-- <th class="th2">ASSIGNED EMPLOYEE</th> -->
+                                <th class="th2">ASSIGNED DATE</th>
+                                <th class="th2"> CURRENT STATUS</th>
+                                <th class="th2"> UPDATE STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let d of empData;" [ngClass]="
+                        {'yellow-row': d.status === 'Completed', 
+                        'green-row': d.status==='File Approved'} ">
+                                <td>{{d.filename}}</td>
+                                <!-- <td>{{d.employee_assigned}}</td> -->
+                                <td>{{d.assigning_date}}</td>
+                                <td class="status">{{d.status}}</td>
+                                <td>
+                                    <button (click)="toggleContainer(d.status)" (click)="sendPendingStatus(d.filename)"
+                                        *ngIf="d.status !== 'Completed' && d.status !=='File Approved' && d.status !== 'File Delivered' && d.status !== 'File Rejected' "
+                                        class="processupdate-btn">
+                                        <div class="image-container">
+                                            <img class="pendingimg" matTooltip='Processing' matTooltipPosition="left"
+                                                src="../../assets/images/processing.jpg" width="17px" height="17px"
+                                                alt="Pending Icon">
+                                        </div>
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="update-container" *ngIf="showProcessContainer">
+    <div class="table-bg">
+        <table class="process-tb">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="td-class">
+                <div class="warning-text" *ngIf="status ==='Not yet started' ">Are you sure to forward this file to
+                    Attribute Info. Verified ? </div>
+                <button class="okbtn" *ngIf="status ==='Not yet started' ">
+                    <tr class="tr-cl">
+                        <td class="li" (click)="sendPendingV1(selectedFile)">Yes </td>
+                    </tr>
+                </button>
+                <div class="warning-text" *ngIf="status ==='Attribute Info. Verified' ">Are you sure to forward this
+                    file to Topological Error Verified ? </div>
+                <button class="okbtn" *ngIf="status ==='Attribute Info. Verified' ">
+                    <tr class="tr-cl">
+                        <td class="li" (click)="sendPendingV2(selectedFile)">Yes </td>
+                    </tr>
+                </button>
+                <div class="warning-text" *ngIf="status ==='Topological Error Verified' ">Are you sure to forward this
+                    file to Route Creation ? </div>
+                <button class="okbtn" *ngIf="status ==='Topological Error Verified' ">
+                    <tr class="tr-cl">
+                        <td class="li" (click)="sendPendingV3(selectedFile)">Yes</td>
+                    </tr>
+                </button>
+
+                <div class="warning-text" *ngIf="status ==='Route Creation' ">Are you sure to forward this
+                    file to Caliberation ? </div>
+                <button class="okbtn" *ngIf="status ==='Route Creation' ">
+                    <tr class="tr-cl">
+                        <td class="li" (click)="sendPendingV4(selectedFile)">Yes</td>
+                    </tr>
+                </button>
+                <div class="warning-text" *ngIf="status ==='Caliberation' ">Are you sure to forward this
+                    file to LRS Process  ? </div>
+                <button class="okbtn" *ngIf="status ==='Caliberation' ">
+                    <tr class="tr-cl">
+                        <td class="li" (click)="sendPendingV5(selectedFile)">Yes</td>
+                    </tr>
+                </button>
+                <div class="warning-text" *ngIf="status ==='LRS Process Completed' ">Are you sure to forward this file
+                    to Overall Verification Completed ? </div>
+                <button class="okbtn" *ngIf="status ==='LRS Process Completed' ">
+                    <tr class="tr-cl">
+                        <td class="li" (click)="sendPendingV6(selectedFile)">Yes</td>
+                    </tr>
+                </button>
+                <div class="warning-text" *ngIf="status ==='Overall Verification Completed' ">Are you sure to forward
+                    this file to File Delivered ? </div>
+                <button class="okbtn" *ngIf="status ==='Overall Verification Completed' ">
+                    <tr class="tr-cl">
+                        <td class="li" (click)="sendPendingV7(selectedFile)">Yes</td>
+                    </tr>
+                </button>
+                <div class="close" (click)="closeToggle()"><img src="../../assets/images/close.png" height="25%"
+                        width="25%" alt=""></div>
+            </tbody>
+        </table>
+    </div>
+</div>

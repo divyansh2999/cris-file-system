@@ -1,0 +1,118 @@
+<div class="status-container">
+    <div class="header">
+        <ul type="none">
+            <li>admin&#64;ml.com</li>
+            <li>{{dateString}}</li>
+        </ul>
+    </div>
+   
+    <div class="container">
+        <div class="fileD">
+
+            <div class="row">
+
+                <div class="welcome"></div>
+                <div>
+                </div>
+                <div class="rowTwo" id="exportTableData">
+                    <table class="dash-table1" id="myTable">
+                        <thead class="head">
+                            <tr class="tr2">
+                                <th class="th2">FILE </th>
+                                <th class="th2">ASSIGNED EMPLOYEE</th>
+                                <th class="th2">ASSIGNED Date</th>
+                                <th class="th2"> CURRENT STATUS</th>
+                                <th class="th2">Action Date</th>
+                                <th class="th2"> UPDATE STATUS</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let f of assignedData;" [ngClass]="
+                                 {'yellow-row': f.status === 'Completed', 
+                                 'green-row': f.status==='File Approved'}">
+
+                                <td>{{f.filename}}</td>
+                                <td>{{f.employee_assigned}}</td>
+                                <td>{{f.assigning_date}}</td>
+                                <td class="status">{{f.status}}</td>
+                                <td>{{f.updated_date}}</td>
+                                <td>
+
+                                    <button (click)="toggleContainer()"
+                                        (click)="sendPendingStatus(f.filename)" *ngIf="f.status !== 'Completed' && f.status !=='File Approved'"
+                                            class="processupdate-btn">
+                                        <div class="image-container">
+                                            <img class="pendingimg"  matTooltip='Processing'
+                                                matTooltipPosition="left" src="../../assets/images/processing.jpg"
+                                                width="17px" height="17px" alt="Your Image">
+                                        </div>
+                                    </button>
+                                    <button  (click)="sendCompletedStatus(f.filename)" class="completedupdate-btn"
+                                        *ngIf="f.status === 'File Delivered'; else disabledButton" mat-raised-button
+                                        matTooltip='Completed' matTooltipPosition="right"
+                                        class="update-btn">
+                                        <img class="update-img" src="../../assets/images/completed.jpg" alt=""
+                                            width="17px" height="17px">
+                                    </button>
+                                    <ng-template #disabledButton>
+                                        <button *ngIf="f.status!=='File Approved' && f.status !=='Completed'  " class="completedupdate-btn" mat-raised-button matTooltip='Completed'
+                                            matTooltipPosition="right" [disabled]="true" class="update-btn">
+                                            <img class="update-img" src="../../assets/images/completed.jpg" alt=""
+                                                width="17px" height="17px">
+                                        </button>
+                                    </ng-template>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="update-container" *ngIf="showProcessContainer" (click)="toggleContainer()">
+    <div class="table-bg">
+        <table class="process-tb">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody class="td-class">
+                <tr>
+                    <td class="li" style="font-weight: bolder;" (click)="sendPendingV1(selectedFile)">Attribute Info.
+                        Verified</td>
+                </tr>
+                <tr>
+                    <td class="li" style="font-weight: bolder;" (click)="sendPendingV2(selectedFile)">Topological Error
+                        Verified</td>
+                </tr>
+                <tr>
+                    <td class="li" style="font-weight: bolder;" (click)="sendPendingV3(selectedFile)">Route Creation
+                        Completed</td>
+                </tr>
+                <tr>
+                    <td class="li" style="font-weight: bolder;" (click)="sendPendingV4(selectedFile)">Caliberation
+                        </td>
+                </tr>
+                <tr>
+                    <td class="li" style="font-weight: bolder;" (click)="sendPendingV5(selectedFile)">LRS Process Completed
+                    </td>
+                </tr>
+                <tr>
+                    <td class="li" style="font-weight: bolder;" (click)="sendPendingV6(selectedFile)">Overall Verification Cpmpleted
+                    </td>
+                </tr>
+                <tr>
+                    <td class="li" style="font-weight: bolder;" (click)="sendPendingV5(selectedFile)">File Delivered
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+

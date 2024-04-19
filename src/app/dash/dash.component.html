@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="table1">
+        <div [@flipInOut]="showDefContainer ? 'in' : 'out'">
+            <table class="dash-table1" *ngIf="showDefContainer" click [@flipInOut]="showDefContainer ? 'in' : 'out'"
+                id="pendingtbl">
+                <thead class="head">
+                    <tr id="completedC">
+                        <th class="th1">Completed File</th>
+                        <th class="th1">Completion Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="tr1" *ngFor="let c of completedFiles ;">
+                        <td class="tr1" mat-raised-button matTooltip={{c.employee_assigned}} matTooltipPosition="above">
+                            {{c.filename}}</td>
+                        <td class="tr1">{{c.updated_date}}</td>
+                    </tr>
+                    <tr *ngIf="completedFiles.length === 0"><h2 style="    opacity: 0.4;margin-top: 50%;margin-left: 54%;width: 100%;">No Completed files to display</h2></tr>
+                </tbody>
+            </table>
+        </div>
+        <div [@flipInOut]="showApContainer ? 'in' : 'out'">
+            <table class="dash-table1" *ngIf="showApContainer" id="pendingtbl">
+                <thead class="head">
+                    <tr id="approvedC">
+                        <th class="th1">Approved File</th>
+                        <th class="th1">Approval Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="tr1" *ngFor="let ap of approvedFiles ;">
+                        <td class="tr1" mat-raised-button matTooltip={{ap.employee_assigned}}
+                            matTooltipPosition="above">{{ap.filename}}</td>
+                        <td class="tr1">{{ap.updated_date}}</td>
+                    </tr>
+                    <tr *ngIf="approvedFiles.length === 0"><h2 style=" opacity: 0.4;margin-top: 50%;margin-left: 54%;width: 100%;">No Approved file to display</h2></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="p-container">
+        <span class="piecontainer">
+            <ag-charts-angular class="pie-cn" style="height: 100%" [options]="options">
+            </ag-charts-angular>
+        </span>
+    </div>
+    <div class="heading">
+        <ul class="ul-heading" type="none">
+            <li class="li">D</li>
+            <li class="li">A</li>
+            <li class="li">S</li>
+            <li class="li">H</li>
+            <li class="li">B</li>
+            <li class="li">O</li>
+            <li class="li">A</li>
+            <li class="li">R</li>
+            <li class="li">D</li>
+        </ul>
+    </div>
+</div>
+<button class="ap-btn" (click)="toggleContainer()">
+    <div *ngIf="showDefContainer">Show Approved Files</div>
+    <div *ngIf="showApContainer">Show Completed Files</div>
+</button>

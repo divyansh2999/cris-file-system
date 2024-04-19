@@ -1,0 +1,58 @@
+<div class="status-container">
+    <div class="header">
+        <ul type="none">
+            <li>client&#64;ml.com</li>
+            <li>{{dateString}}</li>
+        </ul>
+    </div>
+    <div class="container">
+        <div class="fileD">
+            <div class="row">
+                <div class="welcome"></div>
+                <div>
+                </div>
+                <div class="rowTwo" id="exportTableData">
+                    <table class="dash-table1" id="myTable">
+                        <thead class="head">
+                            <tr class="tr2">
+                                <th class="th2">FILE </th>
+                                <th class="th2"> CURRENT STATUS</th>
+                                <th class="th2">ACTION DATE</th>
+                                <th class="th2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let cl of clientFiles;" [ngClass]="
+                            {'yellow-row': cl.status === 'Completed', 
+                            'red-row': cl.status==='File Rejected',
+                            'green-row': cl.status ==='File Approved'} ">
+                                <td>{{cl.filename}}</td>
+                                <td class="status">{{cl.status}}</td>
+                                <td>
+                                    <div *ngIf="cl.status ==='File Approved' || cl.status ==='Completed' || cl.status === 'File Rejected' ">
+                                        {{cl.updated_date}} </div>
+                                </td>
+                                <td class="client-btns">
+                                    <div><img *ngIf="cl.status === 'Completed'" mat-raised-button matTooltip='Approve'
+                                            matTooltipPosition="above" class="approve-btn"
+                                            (click)="sendApprovedStatus(cl.filename)"
+                                            src="../../assets/images/approved.jpg" alt="" width="17px" height="17px">
+                                    </div>
+
+                                    <div>
+                                        <img *ngIf="cl.status === 'Completed'" mat-raised-button matTooltip='Reject'
+                                            matTooltipPosition="above" class="reject-btn"
+                                            (click)="sendRejectedStatus(cl.filename)"
+                                            src="../../assets/images/reject.svg" alt="">
+                                    </div>
+
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

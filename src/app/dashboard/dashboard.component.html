@@ -1,0 +1,287 @@
+<div id="template1">
+    <div class="container">
+        <div class="table1">
+            <div class="table-cn" [@flipInOut]="showDefContainer ? 'in' : 'out'" style="display: flex;">
+                <table class="dash-table" *ngIf="showDefContainer" id="nystbl">
+                    <thead class="head">
+                        <tr id="nysC">
+                            <th>Not yet started</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tr1" *ngFor="let nys of nysFiles ;">
+                            <td class="td1" mat-raised-button matTooltip={{nys.employee_assigned}}
+                                matTooltipPosition="above"
+                                aria-label="Button that displays a tooltip when focused or hovered over">
+                                {{nys.filename}}
+                            </td>
+                        </tr>
+                        <tr *ngIf="!nysFiles">
+                            <h2 style="opacity: 0.4;margin-top: 100%;margin-left:20%;width: 100%;font-size: 13px;">No
+                                file to display
+                            </h2>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="dash-table" *ngIf="showDefContainer" id="pendingtbl">
+                    <thead class="head">
+                        <tr id="processC">
+                            <th>Processing</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tr1" *ngFor="let pending of pendingFiles ;">
+                            <td class="td1" mat-raised-button
+                                matTooltip={{pending.employee_assigned}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Process:{{pending.status}}
+                                matTooltipPosition="above"
+                                aria-label="Button that displays a tooltip when focused or hovered over">
+                                {{pending.filename}}
+                            </td>
+                        </tr>
+                        <tr *ngIf="!pending">
+                            <h2 style="opacity: 0.4;margin-top: 100%;margin-left:20%;width: 100%;font-size: 13px;">No
+                                file in process
+                            </h2>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="dash-table" *ngIf="showDefContainer" id="completedtbl">
+                    <thead class="head">
+                        <tr id="completedC">
+                            <th>Completed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tr1" *ngFor="let completed of completedFiles;">
+                            <td class="td1" mat-raised-button matTooltip={{completed.employee_assigned}}
+                                matTooltipPosition="above">{{completed.filename}}</td>
+                        </tr>
+                        <tr *ngIf="!completedFiles">
+                            <h2 style="opacity: 0.4;margin-top: 100%;margin-left:20%;width: 100%;font-size: 13px;">No
+                                file to display
+                            </h2>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div [@flipInOut]="showApContainer ? 'in' : 'out'">
+                <table class="dash-table1" *ngIf="showApContainer" id="pendingtbl">
+                    <thead class="head">
+                        <tr id="approvedC">
+                            <th class="th1">Approved File</th>
+                            <th class="th1">Approved date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="tr1" *ngFor="let ap of approvedFiles ;">
+                            <td class="tr1" mat-raised-button matTooltip={{ap.employee_assigned}}
+                                matTooltipPosition="above">{{ap.filename}}</td>
+                            <td class="tr1">{{ap.updated_date}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="p-container">
+            <span class="piecontainer">
+                <ag-charts-angular class="pie-cn" style="height: 100%" [options]="options">
+                </ag-charts-angular>
+                <div class="progress">
+                    <div class="process">Processes</div>
+                    <span mat-raised-button matTooltip={{tooltipTextV1}} matTooltipPosition="above" class="validation1">
+                        <canvas id="Validation1"></canvas>
+                    </span>
+                    <span mat-raised-button matTooltip={{tooltipTextV2}} matTooltipPosition="above" class="validation2">
+                        <canvas id="Validation2"></canvas>
+                    </span>
+                    <span mat-raised-button matTooltip={{tooltipTextV3}} matTooltipPosition="above" class="validation3">
+                        <canvas id="Validation3"></canvas>
+                    </span>
+                    <span mat-raised-button matTooltip={{tooltipTextV4}} matTooltipPosition="above" class="validation4">
+                        <canvas id="Validation4"></canvas>
+                    </span>
+                    <span mat-raised-button matTooltip={{tooltipTextV5}} matTooltipPosition="above" class="validation5">
+                        <canvas id="Validation5"></canvas>
+                    </span>
+                </div>
+                <h2 class="v1">{{this.valid1Int}}%</h2>
+                <h2 class="v2">{{this.valid2Int}}%</h2>
+                <h2 class="v3">{{this.valid3Int}}%</h2>
+                <h2 class="v4">{{this.valid4Int}}%</h2>
+                <h2 class="v5">{{this.valid5Int}}%</h2>
+            </span>
+        </div>
+        <div class="heading">
+            <ul class="ul-heading" type="none">
+                <li class="li">D</li>
+                <li class="li">A</li>
+                <li class="li">S</li>
+                <li class="li">H</li>
+                <li class="li">B</li>
+                <li class="li">O</li>
+                <li class="li">A</li>
+                <li class="li">R</li>
+                <li class="li">D</li>
+            </ul>
+        </div>
+    </div>
+    <button class="ap-btn" (click)="toggleContainer()">
+        <div *ngIf="showDefContainer">Show Approved Files</div>
+        <div *ngIf="showApContainer">Hide Approved Files</div>
+    </button>
+</div>
+<div id="template2">
+    <div id="left-btn" *ngIf="toggle === false" (click)="showOptions()"><img src="../../assets/images/left-btn.svg"
+            alt="">
+    </div>
+    <div id="right-btn" *ngIf="toggle === true" (click)="showOptions()"><img src="../../assets/images/right-btn.svg"
+            alt=""></div>
+    <div id="options" [@slideInOut]="toggle ? 'out' : 'in'">
+        <div class="calendar">
+            <mat-form-field>
+                <mat-label>Choose a date</mat-label>
+                <input matInput [matDatepicker]="picker" placeholder="MM/DD/YYYY" [(ngModel)]="selectedDate">
+                <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+        <div class="fileUpload" (change)="onFilechange($event)">
+            <label class="label-browse" for="folderInput">Browse</label>
+            <input id="folderInput" type="file"  multiple hidden #fileInput>
+        </div>
+        <div class="title">
+            <form>
+                <mat-form-field>
+                    <mat-label>Title</mat-label>
+                    <textarea matInput [(ngModel)]="title" [ngModelOptions]="{standalone: true}"
+                        placeholder="Enter title" #textInput></textarea>
+                </mat-form-field>
+            </form>
+        </div>
+        <button (click)="sendData()" class="submit">Submit</button>
+    </div>
+    
+    <div style="height:400px;overflow:auto;scrollbar-width: none;margin-left:5rem;box-shadow: 0 0 5px 0 #605e5e;margin-top:2.5rem;">
+        <table>
+            <tr>
+             <th class="th-class" >S.No</th>
+             <th class="th-class" style="width:20rem;">File Name</th>         
+             <th class="th-class" style="width:10rem;">Meeting Date</th>
+             <th class="th-class" style="width:35rem;">Title</th>
+             <th class="th-class" style="width:5rem;">Action</th>
+            </tr>
+            <tbody >
+                <tr *ngFor="let d of momsData ;">
+                    <td class="td-class" >{{momsData.indexOf(d)+1 }}</td>
+                    <td class="td-class">{{d.filename}}</td>
+                    <td class="td-class" style="text-align: center;" >{{d.receivingdate| date: 'yyyy-MM-dd' }}</td>
+                    <td class="td-class" >{{ d.title }}</td>
+                    <td class="td-class" style="text-align: center;"><img src="../../assets/images/downloadIcon.svg" id="download-btn" (click)="downloadFile(d.path)" alt="">
+                        <!-- <input type="button"  value="Download"> -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+<div id="template3" style="align-items: center;">
+    <div id="uploadDoc" (click)="showUploadContainer()">
+        Upload Documents
+        <div id="documentUploadContainer">
+            <div>Select document type </div>
+            <div>
+                <ul type="none" class="version">
+                    <li id="docId" style="margin-top:1rem;">
+                        <label>
+                            <input type="radio" name="projectType" value="SRS" [(ngModel)]="selectedProjectType"  (click)="selectDocType($event)" (click)="selectVersion()"> SRS
+                        </label>
+                    </li>
+                    <li id="docId" style="margin-top:1rem;">
+                        <label>
+                            <input type="radio" name="projectType" value="FRS" [(ngModel)]="selectedProjectType"  (click)="selectDocType($event)" > FRS
+                        </label>
+                    </li>
+                    <li id="docId" style="margin-top:1rem;">
+                        <label>
+                            <input type="radio" name="projectType" value="BRS" [(ngModel)]="selectedProjectType"  (click)="selectDocType($event)" > BRS
+                        </label>
+                    </li>
+                </ul>
+                <ul type="none" class="documentVersion">Select version
+                    <li style="margin-top:1rem;">
+                        <label>
+                            <input type="radio" name="docVersion" value="version1" [(ngModel)]="selectedVersion"  (click)="selectversion($event)"> Version 1
+                        </label>
+                    </li>
+                    <li style="margin-top:1rem;">
+                        <label>
+                            <input type="radio" name="docVersion" value="version2" [(ngModel)]="selectedVersion" (click)="selectversion($event)"> Version 2
+                        </label>
+                    </li>
+                    <li style="margin-top:1rem;">
+                        <label>
+                            <input type="radio" name="docVersion" value="version3" [(ngModel)]="selectedVersion" (click)="selectversion($event)"> Version 3
+                        </label>
+                    </li>
+                </ul>
+                <div class="documentVersion">
+                    <div><label class="version-browse" for="folderInput" (change)="onFilechange($event)" >Browse File</label>
+                        <!-- <span style="color:green;font-size:13px;margin-left:1rem;">{{file.name}}</span> -->
+                        <input id="folderInput" type="file" multiple hidden></div>
+                    
+                    <!-- <input id="folderInput" type="file" (change)="handleSelectFile($event)" multiple hidden> -->
+                <div id="submitBtn">
+                    Submit
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- <div class="fileUpload" id="fileupload-btn" >
+          <label class="label-browse" for="folderInput">Browse</label>
+          <input id="folderInput" type="file" (change)="handleSelectFile($event)" multiple hidden>
+          </div> -->
+    </div>
+    <div
+        style="position: absolute;left: 67%;top: 22%;font-family:Verdana, Geneva, Tahoma, sans-serif;box-shadow:0 0 8px 0px black;padding: 30px;">
+        <h3 style="font-weight:500">Projects Documents</h3>
+        <div class="version">
+            <ul>
+                <li>
+                    SRS (System Requirement Sepecification)
+                    <ul>
+                        <li>Version 1 <img class="download-btn" src="../../assets/images/downloadIcon.svg" alt=""></li>
+                        <li>Version 2 <img class="download-btn" src="../../assets/images/downloadIcon.svg" alt=""></li>
+                        <li>Version 3 <img class="download-btn" src="../../assets/images/downloadIcon.svg" alt=""></li>
+                    </ul>
+                </li>
+                <li>
+                    FRS (Functional Requirement Specification)
+                    <ul>
+                        <li>Version 1 <img class="download-btn" src="../../assets/images/downloadIcon.svg" alt=""></li>
+                        <li>Version 2 <img class="download-btn" src="../../assets/images/downloadIcon.svg" alt=""></li>
+                        <li>Version 3 <img class="download-btn" src="../../assets/images/downloadIcon.svg" alt=""></li>
+                    </ul>
+                </li>
+                <li>
+                    BRS (Business Requirement Specification)
+                    <ul>
+                        <li>Version 1 <img class="download-btn" src="../../assets/images/downloadIcon.svg" alt=""></li>
+                        <li>Version 2 <img class="download-btn" src="../../assets/images/downloadIcon.svg" alt=""></li>
+                        <li>Version 3 <img class="download-btn" src="../../assets/images/downloadIcon.svg" alt=""></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="marquee">
+    <marquee class="marquee-class">CRIS <span style="color:yellow">(Centre for Railway Information Systems)</span> is an
+        organization under Ministry of Railways.
+        CRIS is a unique combination of competent IT professionals and experienced Railway personnel enabling it to
+        successfully
+        deliver complex Railway IT systems in core areas. Since its inception, CRIS is developing/maintaining softwares
+        for the
+        following key functional areas of the Indian Railways.
+    </marquee>
+</div>

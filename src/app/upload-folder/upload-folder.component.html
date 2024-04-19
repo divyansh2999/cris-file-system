@@ -1,0 +1,50 @@
+
+<div class="container">
+    <div class="fileD">
+        <div class="row">
+            <div class="rowOne">
+                <div>
+                </div>
+            </div>
+            <div class="labelInput">
+                <label class="label-browse" for="folderInput">Browse</label>
+                <input id="folderInput" type="file" (change)="handleSelectFolder($event)" multiple hidden>
+            </div>
+            <div class="rowTwo" id="exportTableData">
+                <table id="myTable">
+                    <thead>
+                        <tr>
+                            <th class="th">File Name</th>
+                            <th class="th">File Size</th>
+                            <th class="th">File Extension</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let file of UploadedFiles; let i = index">
+                            <td>{{file.name}}</td>
+                            <td>{{file.size}}</td>
+                            <td>{{file.extension}}</td>
+                            <td><button class="dltbtn" (click)="deleteRow(i)"><img src="assets/images/delete.png"
+                                        width="15px" height="15px" alt=""></button>
+                            </td>
+                            <td><input type="checkbox" (click)="mark(i)"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="dropdown-class">
+                <label class="label-employee">Assign Employee</label><br><br>
+                <select class="dropdown" (change)="selectEmployee($event)">
+                    <option value="">Select Employee</option>
+                    <option *ngFor="let emp of Employees; let i=index" [value]="emp.empid" class="option">
+                        {{emp.empname}}</option>
+                </select>
+                <button class="submit-btn" (click)="sendData()" > Assign</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="marquee"><marquee class="marquee-class">CRIS <span style="color:yellow;">(Centre for Railway Information Systems)</span> is an organization under Ministry of Railways. 
+    CRIS is a unique combination of competent IT professionals and experienced Railway personnel enabling it to successfully 
+    deliver complex Railway IT systems in core areas. Since its inception, CRIS is developing/maintaining softwares for the 
+    following key functional areas of the Indian Railways.</marquee></div>

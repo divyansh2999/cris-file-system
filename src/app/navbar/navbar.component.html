@@ -1,0 +1,58 @@
+<div class="bg-class" id="bg-id" style="display: block;">
+    <nav class="nav-class" id="nav-id">
+        <div class="nav">
+            <span><a routerLink="/"><img class="cris" src="../../assets/images/cris.jpg" alt=""></a></span>
+            <div class="ul-class">
+                <ul type="none">
+                    <li *ngIf="savedCredentials1 " id="work_assi_id" class="li-class">
+                        <a class="a-class" routerLink="/dashboard">Project's MoMs</a>
+                    </li>
+                    <li *ngIf="savedCredentials1" id="work_assi_id" class="li-class" (click)="showTemplate3()">
+                        <a class="a-class" routerLink="/dashboard">Project's DOCs</a>
+                    </li>
+                    <li *ngIf="savedCredentials2" id="Dash_id">
+                        <a class="a-class" routerLink="/dash">Dashboard</a>
+                    </li>
+                    <li *ngIf="savedCredentials" id="Dashboard_id">
+                        <a class="a-class" routerLink="/dashboard">Dashboard</a>
+                    </li>
+                    <li *ngIf="savedCredentials" id="assigned_id" class="li-class">
+                        <a class="a-class" routerLink="/assignedtab">Get Report</a>
+                    </li>
+                    <li *ngIf="savedCredentials" id="update1_id" class="li-class">
+                        <a class="a-class" routerLink="/efsu">Update</a>
+                    </li>
+                    <li *ngIf="savedCredentials2" id="update3_id" class="li-class">
+                        <a class="a-class" routerLink="/client">Update</a>
+                    </li>
+                    <li *ngIf="savedCredentials1" mat-button [matMenuTriggerFor]="menu" class="a-class">Utility</li>
+                    <mat-menu #menu="matMenu">
+                        <button mat-menu-item>
+                            <li *ngIf="savedCredentials1" id="Dashboard_id" (click)="switchToDashboard()">
+                                <a class="a-class">Dashboard</a>
+                            </li>
+                        </button>
+                        <button mat-menu-item>
+                            <li *ngIf="savedCredentials1" id="work_assi_id" class="li-class">
+                                <a class="a-class" routerLink="/uploadfolderfile">Work Assignment</a>
+                            </li>
+                        </button>
+                        <button mat-menu-item>
+                            <li *ngIf="savedCredentials || savedCredentials1" id="assigned_id" class="li-class">
+                                <a class="a-class" routerLink="/assignedtab">Get Report</a>
+                            </li>
+                        </button>
+                        <button mat-menu-item>
+                            <li *ngIf="savedCredentials1" id="update2_id" class="li-class">
+                                <a class="a-class" routerLink="/admin">Update</a>
+                            </li>
+                        </button>
+                    </mat-menu>
+                    <li id="logout_li_id" class="li-class">
+                        <a id="logout_id" class="a-class" (click)="logout()">Logout</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>

@@ -1,0 +1,20 @@
+<div class="container">
+<div class="box">
+  <h2>Login</h2>
+  <form [formGroup] = "loginForm" > 
+      <div class="inputBox">
+          <input type="text" id="email" name="email" formControlName="email" autocomplete="email">
+          <label for="email">Username</label>
+      </div>
+      <div class="inputBox">
+          <input type="password" id="password" name="password" formControlName="password" autocomplete="current-password">
+          <label for="password">Password</label>
+      </div>
+      <input type="submit" name="submit" value="Submit" (click)="login()">
+  </form>
+</div>
+</div>
+<div class="marquee"><marquee class="marquee-class">CRIS <span style="color:yellow">(Centre for Railway Information Systems)</span> is an organization under Ministry of Railways. 
+    CRIS is a unique combination of competent IT professionals and experienced Railway personnel enabling it to successfully 
+    deliver complex Railway IT systems in core areas. Since its inception, CRIS is developing/maintaining softwares for the 
+    following key functional areas of the Indian Railways.</marquee></div>

@@ -1,0 +1,81 @@
+.nav{  
+    background-color: rgba(183, 198, 223, 0.925);
+    display: flex;
+    flex-direction: row;
+    min-height: 60px;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);  
+}
+.li-class{
+    display: flex;
+}
+.logout_id:hover{
+    cursor:pointer;
+}
+.img-class{
+    height: 120px;
+    width: 140px;
+    margin-left:20px;
+}
+.a-class{
+    font-size: 17px;
+    text-decoration: none;
+    color:rgb(51, 50, 50);
+    padding-right: 20px;
+    min-height:5%;   
+}
+.a-class:hover{
+    font-size: 17px;
+    text-decoration: none;
+    color:rgb(0, 0, 0);
+    padding-right: 20px;
+    border-radius: 20%;
+    filter:brightness(2.0);
+    cursor:pointer;
+}
+.ul-class{
+    display: flex;
+    justify-content: flex-end;   
+}
+.ul-class > ul{
+    display: flex;
+    flex-direction:row ;
+    justify-content: space-around;
+    align-items: center; 
+}
+.ul-class > ul > li{
+    margin: 0px 15px; 
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+}
+.heading{
+    font-size: 30px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color:rgb(192, 186, 186); 
+    padding-right:550px;
+}
+.nav-class{
+    position:fixed;
+    width:100%;
+}
+.bg-class{
+    opacity:0.8;
+}
+.cris{
+    position: absolute;
+    left:0%;
+    filter: contrast(2.0);
+    width:20%;
+    height:110%;
+}
+
+::ng-deep .mat-mdc-menu-content{
+    background-color: #ffffff !important;
+}
+::ng-deep .cdk-overlay-connected-position-bounding-box{
+    top: 61px!important;
+    right: 4px!important;
+}

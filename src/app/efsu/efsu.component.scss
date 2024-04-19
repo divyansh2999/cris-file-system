@@ -1,0 +1,571 @@
+.welcome {
+    position: absolute;
+    color: white;
+    top: 6%;
+    left: 45%;
+    font-size: 25px;
+}
+.fileD {
+    margin-top: 2.8%;
+    width: 100%;
+}
+.pie {
+    margin-left: 60%;
+    margin-right: 5%;
+    margin-top: -22%;
+    border: 2px solid rgb(105, 129, 136);
+}
+.container {
+    background-color: white;
+    min-height: 100%;
+    .row {
+        width: 95%;
+        min-height: 606px;
+        margin: auto;
+        .rowTwo {
+            width: 100%;
+            min-height: fit-content;
+            margin: 25px 0 0 0;
+            color: rgb(7, 6, 6);
+            border-radius: 5px;
+            overflow: auto;
+            overflow: -moz-scrollbars-none;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            table {
+                width: 100%;
+                thead {
+                    background: rgb(122, 168, 182);
+                    text-align: center;
+                    color: black;
+                }
+                tbody {
+                    background: rgb(93, 146, 167);
+                    text-align: left;
+                    tr>td {
+                        padding: 2px 4px;
+                    }
+                }
+            }
+        }
+    }
+}
+.a-class {
+    text-decoration: none;
+    color: rgb(5, 5, 5);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+.pie-btn {
+    margin-left: 45%;
+    background: linear-gradient(black);
+    padding: 5px;
+}
+.th {
+    font-size: 20px;
+    min-width: 250px;
+}
+.dashboard {
+    margin-left: 40%;
+    margin-right: 45%;
+}
+.head {
+    font: 10px;
+}
+.t2head {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.dltbtn {
+    border-width: 0px;
+
+    opacity: 0.85;
+}
+.dltbtn:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+.table2 {
+    margin-left: 60%;
+    margin-right: 0%;
+}
+.th {
+    background-color: rgb(153, 181, 201);
+}
+.td {
+    background-color: rgb(97, 164, 180);
+    text-align: center;
+}
+.ul {
+    background-color: rgb(123, 160, 194);
+    padding: 20px;
+    font-size: 13px;
+}
+.process-status {
+    position: absolute;
+    top: 15%;
+    left: 80%;
+}
+.dropdown-class {
+    position: absolute;
+    top: 24%;
+    left: 60%;
+}
+.label-employee {
+    background-color: rgb(85, 136, 156);
+    font-size: 20px;
+    border: 0.3px solid rgb(127, 177, 185);
+    padding: 3px 15px;
+}
+.dropdown {
+    width: 100%;
+}
+input[type='checkbox'] {
+    accent-color: rgb(17, 206, 26);
+}
+.submit-btn {
+    position: absolute;
+    margin-left: 2%;
+    margin-top: -25%;
+    background-color: rgb(152, 194, 218);
+    font-size: 17px;
+    font-weight: 100px;
+    border-radius: 3px;
+}
+.submit-btn:hover {
+    cursor: pointer;
+}
+.option:hover {
+    cursor: pointer;
+}
+.dropdown {
+    background-color: rgb(96, 169, 202);
+}
+.dropdown:hover {
+    cursor: pointer;
+}
+.submit-btn {
+    position: absolute;
+    margin-left: 2%;
+    margin-top: -25%;
+    background-color: rgb(117, 167, 173);
+    font-size: 17px;
+    font-weight: 100px;
+    border-radius: 3px;
+}
+.submit-btn:hover {
+    cursor: pointer;
+}
+.img {
+    position: absolute;
+    top: 2%;
+    backdrop-filter: brightness;
+}
+.img:hover {
+    cursor: pointer;
+}
+.status {
+    color: rgb(211, 63, 63)
+}
+.myTable {
+    height: 600px;
+    overflow: auto;
+    overflow: -moz-scrollbars-none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+.green-row {
+    background-color: #c8e6c9;
+}
+.yellow-row {
+    background-color: #ece5a6;
+}
+.header {
+    padding-left:17%;
+    background-color: rgba(39, 117, 235, 0.925);
+    color: whitesmoke;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    box-shadow: 0 8px 8px rgba(0, 0, 0, 0.5);
+    padding-right: 7%;
+}
+.filenos {
+    position: absolute;
+    left: 89%;
+    top: 0.2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-top: 0.1%;
+    padding-bottom: 0.2%;
+}
+.logout-span {
+    position: absolute;
+    left: 95%;
+    top: 6.5%;
+}
+.text {
+    position: absolute;
+    left: 42.5%;
+    top: 5%;
+    font-size: 25px;
+}
+.logout-btn {
+    background-color: rgb(3, 29, 77);
+    color: white;
+    font-size: 15x;
+    border-radius: 2px;
+    transition: 0.5s ease-out;
+    margin-top:63%;
+}
+.logout-btn:hover {
+    cursor: pointer;
+    transition: 0.5s ease-in;
+    transform: scale(1.05);
+}
+.status-container {
+    min-height: 630px;
+}
+.tr-head {
+    display: flex;
+    flex-direction: row;
+    padding-top: 10%;
+    padding-left: 55%;
+    width: 100%;
+}
+.th-date {
+    margin-left: 30%;
+}
+.thead {
+    width: 100%;
+}
+.welcome {
+    position: absolute;
+    color: white;
+    top: 6%;
+    left: 45%;
+    font-size: 25px;
+}
+.pie {
+    margin-left: 60%;
+    margin-right: 5%;
+    margin-top: -22%;
+    border: 2px solid rgb(177, 177, 168);
+}
+.container {
+    background-color: white;
+    .row {
+        width: 90%;
+        min-height: 500px;
+        .rowOne {
+            width: 100%;
+            min-height: 100px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            border-width: 5px;
+            .labelInput {
+                height: inherit;
+                display: flex;
+                color: white;
+                align-items: center;
+                margin-left: 90%;
+                label {
+                    padding: 10px 15px;
+                    font-size: 20px;
+                    font-weight: 400;
+                    color: rgb(51, 45, 45);
+                    box-shadow: 0 0 50px 10px #48abe0;
+                    cursor: pointer;
+                }
+                input {
+                    font-size: 20px;
+                    margin-left: 5px;
+                }
+            }
+            .exportButton {
+                display: flex;
+                justify-content: flex-end;
+                align-items: center;
+                button {
+                    width: 180px;
+                    height: 40px;
+                    background: white;
+                    color: rgb(84, 61, 216);
+                    font-size: 18px;
+                    border: none;
+                    border-radius: 15px;
+                    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                    margin: 0px 15px;
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-around;
+                    align-items: center;
+                    img {
+                        width: 20px;
+                        height: 20px;
+                        right: 5px;
+                    }
+                }
+                button:hover {
+                    cursor: pointer;
+                }
+            }
+        }
+        .rowTwo {
+            width: 100%;
+            background: rgb(184, 202, 207);
+            margin: 25px 0 0 0;
+            color: rgb(7, 6, 6);
+            height: 80vh;
+            overflow: auto;
+            overflow: -moz-scrollbars-none;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+            table {
+                width: 100%;
+                thead {
+                    background: rgb(129, 179, 192);
+                    text-align: center;
+                    color: black;
+                }
+                tbody {
+                    background: rgb(235, 237, 238);
+                    text-align: left;
+                    tr>td {
+                        padding: 2px 4px;
+                    }
+                    tr>td:hover {
+                        font-weight: bold;
+                        transition: 3s ease;
+                        cursor: context-menu;
+                    }
+                }
+            }
+        }
+    }
+}
+.dash-table1 {
+    width: 100%;
+    table-layout: fixed; 
+    overflow-y: auto; 
+    max-height: 400px; 
+}
+.head {
+    position: sticky;
+    top: 0;
+    background-color: #8bb4c0; 
+    z-index: 1; 
+}
+.tr2,
+.th2 {    
+    border: 1px solid #5099a3; 
+}
+.a-class {
+    text-decoration: none;
+    color: rgb(5, 5, 5);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+.pie-btn {
+    margin-left: 45%;
+    background: linear-gradient(black);
+    padding: 5px;
+}
+.pie-btn:hover {
+    background: linear-gradient(rgb(184, 184, 173), rgb(160, 160, 148), rgb(54, 54, 4));
+    padding: 5px;
+    cursor: pointer;
+}
+.th {
+    font-size: 20px;
+}
+.dashboard {
+    margin-left: 40%;
+    margin-right: 45%;
+}
+.head {
+    font: 10px;
+}
+.t2head {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.dltbtn {
+    border-width: 0px;
+    opacity: 0.85;
+}
+.dltbtn:hover {
+    cursor: pointer;
+    opacity: 1;
+}
+.table2 {
+    margin-left: 60%;
+    margin-right: 0%;
+}
+.th {
+    background-color: rgb(109, 166, 199);
+    font-size: 20px;
+}
+.td {
+    background-color: rgb(80, 159, 196);
+    text-align: center;
+    font-style: italic;
+    font-size: 23px;
+}
+.ul {
+    background-color: rgb(111, 154, 184);
+    padding: 20px;
+    font-size: 13px;
+}
+.process-status {
+    position: absolute;
+    top: 15%;
+    left: 80%;
+}
+.table {
+    margin-left: 30%;
+    margin-top: 5%;
+}
+.a-logout {
+    text-decoration: none;
+    color: whitesmoke;
+}
+.update-btn:hover {
+    cursor: pointer;
+    filter: contrast(2);
+}
+.image-container {
+    position: relative;
+    display: inline-block;
+}
+.image-container:hover .overlay {
+    display: flex;
+}
+.overlay {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.button1 {
+    background-color: #fff;
+    color: #000;
+    padding: 2.5px 5px;
+    margin: 2px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 10px;
+}
+.button2 {
+    background-color: #fff;
+    color: #000;
+    padding: 2.5px 5px;
+    margin: 2px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background-color 1s ease;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10px;
+}
+.button1:hover {
+    background-color: #d4ae8b;
+    transition: background-color 1s ease;
+    color: black;
+}
+.button2:hover {
+    background-color: #cc9a5a;
+    transition: background-color 1s ease;
+    color: black;
+}
+.processupdate-btn{
+margin-left:46%;
+}
+.processupdate-btn:hover{
+    cursor:pointer;
+    }
+.update-status-list{
+    position: absolute;
+    left:43%;
+    top:33%;
+    background-color: white;
+}
+.td-class{
+   background-color: #fffefe;
+   text-align: center;
+}
+.update-container{
+    background-color: rgba($color: #383737, $alpha: 0.7);
+    height:86%;
+    width:100%;
+    position: absolute;
+    top:12%;
+    left:0%;
+    box-shadow: 0 16px 25px rgba(0, 0, 0, 0.5);
+    border-radius: 0.5%;
+}
+.table-bg{
+    position: absolute;
+    top:33%;
+    left:36%;
+    box-shadow: 0 16px 8px rgba(0, 0, 0, 0.5);
+}
+.process-tb{
+    position: relative;
+}
+.logoutimg{
+    margin-top:60%;
+    margin-left:40%;
+}
+.logoutimg:hover{
+    cursor: pointer;
+    filter: brightness(1.5);
+}
+.tr-cl{
+    width:fit-content;
+}
+.closebtn{
+    margin-right:-70%;
+    margin-bottom:5%;
+}
+.closebtn:hover{
+    background-color: red;
+    color:white;
+    cursor:pointer;
+}
+.okbtn{
+   margin-top:5%;
+}
+.okbtn:hover{
+    background-color: green;
+    color: white;
+    cursor:pointer;
+}
+.warning-text{
+    font-style: italic;
+    font-weight: bold;
+    padding-right:5%;
+    padding-left:5%;
+    padding-top:5%;
+}
+.close{
+    position:absolute;
+    top:10%;
+    left:85%;
+}
+.close:hover{
+    cursor:pointer;
+    filter: contrast(5.0);
+}
